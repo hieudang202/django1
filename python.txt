@@ -1,0 +1,2 @@
+git clone http://https://github.com/pytutorial/flask_products
+debug : quá trình tìm lỗi bằng cách dừng chương trình ở vị trí ngẫu nhiên

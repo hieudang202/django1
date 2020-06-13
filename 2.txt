@@ -1,0 +1,56 @@
+pip install django	
+django-admin startproject hello
+cd hello
+python manage runserver
+python manage.py startapp app1
+cachs tao app2 
+python manage.py startapp app2
+- settings.py them app2
+-urls.py forder goc include
+app_/taoj urrls.py
+views.py cai dat
+ 
+
+phải mở forder gốc bên trong không được mở forder bên ngoài vì sẽ tạo ra lỗi
+null=True luu vaof database
+xem sqplite bằng databasebrowse
+
+lệnh làm việc với database
+python manage.py makemigrations 
+python manage.py migrate
+python manage.py shell
+thực hiện trong forder gốc
+p= Product.objects.get(code='P1')
+#SELECT *FROM product WHERE code='P1'
+p= Product.objects.get(code='P1',price=10000)
+#SELECT *FROM product WHERE code='P1' and price
+lấy thông tin dùng orm
+ báo cáo dùng sql
+
+sửa dụng hàm get khi biết chắc có 1 kết quả 
+ngược lại dùng filter
+ví dụ tìm sản phẩm duy nhất nếu không coi như không có sản phẩm dùng get
+p = Product.objects.filter(code='P1') #return list
+#SELECT * FROM product WHERE code='P1'
+
+p = Product.objects.filter(code='P1').first() #return one
+#SELECT * FROM product WHERE code='P1' limit 1
+
+Product.objects.filter(name__startswith='sản phẩm)# return list
+#SELECT *FROM product WHERE name LIKE'sản phẩm%'
+--> name__endswith ,name__contains
+Product.objects.filter(price__gt=15000)
+#SELECT * FROM product WHRERe price>15000
+-->__ lt:less than(<),__gte:greater than or equal(>=)
+__lte:less than or equal(<=)
+__ne:not equal(<>)
+Product.objects.filter(name__startswith='sản phẩm ',price__gt=15000)
+#select * FROM product WHRE name LIKE 'sản phẩm %'
+AND price>15000
+
+from django.db.models import Q
+Product.objects.filter(Q(code__contains='')|Q(name__contains='01'))
+#SELECT * FROM product WHERE code LIKE '%01%' OR name LIKE '%01%'
+Product.objects.filter(category__code='C1')
+#SELECT * FROM product LEFT JOIN category
+ON category.id=product.category_id WHERE category.code='C1'

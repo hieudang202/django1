@@ -1,0 +1,6 @@
+pip install django	
+django-admin startproject hello
+cd hello
+python manage
+python manage.py startapp app1
+unique=true giá trị mặc định duy nhất 
